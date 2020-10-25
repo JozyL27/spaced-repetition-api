@@ -1,5 +1,5 @@
 {
-  "name": "express-boilerplate",
+  "name": "habla-api",
   "version": "0.0.1",
   "description": "",
   "main": "src/server.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:production": "env SSL=true DATABASE_URL=$(heroku config:get DATABASE_URL) npm run migrate",
-    "start": "node src/server.js",
+    "start": "node src/cluster.js",
     "predeploy": "npm run migrate:production",
     "deploy": "git push heroku master"
   },
@@ -16,10 +16,11 @@
   "engines": {
     "node": "12.14.1"
   },
-  "author": "Tom `tomatao` HT <tomht@thinkful.com>",
+  "author": "Jozy",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
